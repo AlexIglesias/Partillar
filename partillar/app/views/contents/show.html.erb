@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @content.title %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @content.source %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @content.description %>
+</p>
+
+<p>
+  <strong>URL:</strong>
+  <a href=" <%= @content.media_url %>"> <%= @content.media_url %></a>
+</p>
+
+
+<%= link_to 'Back', contents_path %>
