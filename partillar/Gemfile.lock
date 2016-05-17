@@ -36,8 +36,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    acts_as_tree (2.4.0)
-      activerecord (>= 3.0.0)
     administrate (0.2.0)
       autoprefixer-rails (~> 6.0)
       datetime_picker_rails (~> 0.0.7)
@@ -77,6 +75,10 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.6.0)
+    geokit (1.10.0)
+    geokit-rails (2.1.0)
+      geokit (~> 1.5)
+      rails (>= 3.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -205,11 +207,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_tree (~> 2.4)
   administrate
   administrate-field-image
   byebug
   coffee-rails (~> 4.1.0)
+  geokit-rails
   jbuilder (~> 2.0)
   jquery-rails
   pg (~> 0.15)

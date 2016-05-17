@@ -1,4 +1,5 @@
 class ContentsController < ApplicationController
+  include Geokit::Geocoders
 
   def index
     content = Content.all
@@ -14,18 +15,30 @@ class ContentsController < ApplicationController
   end
 
   def create
+    @category = Category.all
     @content = Content.new(content_params)
+    check_location(params[:content][:location])
     respond_to do |format|
       if @content.save
-        format.html { redirect_to @content, notice: 'Content was successfully created.' }
-      else
-        format.html { render :new }
-      end
-    end
+         format.html { redirect_to @content, notice: 'Content was successfully created.' }
+       else
+         format.html { render :new }
+       end
+     end
   end
 
 private
     def content_params
-      params.require(:content).permit(:source, :title, :media_url, :description)
+      params.require(:content).permit(:source, :title, :media_url, :description, :category_id)
+    end
+
+    def check_location(location)
+      geo_location = GoogleGeocoder.geocode(location)
+       if geo_location.success
+          @content.build_location(
+            name: geo_location.city,
+            latitude: geo_location.lat,
+            longitude: geo_location.lng)
+       end
     end
 end

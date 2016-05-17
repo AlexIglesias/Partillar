@@ -29,13 +29,16 @@ ActiveRecord::Schema.define(version: 20160516082216) do
     t.text     "description"
     t.boolean  "curated",     default: false
     t.integer  "category_id"
+    t.integer  "location_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
 
+  add_index "contents", ["location_id"], name: "index_contents_on_location_id", using: :btree
+
   create_table "locations", force: :cascade do |t|
-    t.string   "latitude"
-    t.string   "longitude"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

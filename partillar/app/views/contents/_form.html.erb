@@ -1,5 +1,10 @@
 <%= form_for @content do |f| %>
   <div class="field">
+    <%= f.label :category_id %><br>
+    <%= f.collection_select :category_id, Category.all , :id, :name, {prompt: 'Select Category'} %> 
+
+  </div>
+  <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
@@ -10,6 +15,14 @@
    <div class="field">
     <%= f.label :media_url %><br>
     <%= f.text_field :media_url %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
   </div>
   <div class="actions">
     <%= f.submit %>

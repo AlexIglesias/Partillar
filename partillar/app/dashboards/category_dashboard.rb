@@ -8,7 +8,7 @@ class CategoryDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    contents: Field::HasMany,
+    content: Field::BelongsTo,
     id: Field::Number,
     name: Field::String,
     created_at: Field::DateTime,
@@ -21,16 +21,15 @@ class CategoryDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :contents,
-    :id,
     :name,
+    :id,
     :created_at,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :contents,
+    :content,
     :id,
     :name,
     :created_at,
@@ -41,7 +40,7 @@ class CategoryDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :contents,
+    :content,
     :name,
   ].freeze
 

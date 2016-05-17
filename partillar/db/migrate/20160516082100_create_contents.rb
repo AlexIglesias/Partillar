@@ -7,6 +7,7 @@ class CreateContents < ActiveRecord::Migration
       t.text :description
       t.boolean :curated, default: false
       t.references :category
+      t.references :location, index: true
 
       t.timestamps null: false
     end

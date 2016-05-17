@@ -16,7 +16,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'administrate'
 gem 'administrate-field-image'
-gem 'acts_as_tree', '~> 2.4'
+# gem 'acts_as_tree', '~> 2.4'
+gem 'geokit-rails'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
