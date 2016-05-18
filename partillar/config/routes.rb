@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to: "contents#index"
+  get '/', to: "contents#index"
+
+  resources :contents
 
   namespace :admin do
     resources :categories
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
     root to: "categories#index"
   end
 
-  resources :contents
+
 
 
 
