@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require uikit
 //= require uikit-components
-//= require turbolinks
 //= require_tree .

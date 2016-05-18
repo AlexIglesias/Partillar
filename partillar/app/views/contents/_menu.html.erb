@@ -1,0 +1,39 @@
+<nav class="uk-navbar">
+	<a href="#" class="uk-navbar-toggle" data-uk-offcanvas="{target:'#offcanvas'}"></a>
+	<a class="uk-navbar-brand" href="#">Partillar</a>
+	<div class="uk-navbar-flip">
+		<form class="uk-search" data-uk-search="">
+			<input class="uk-search-field" type="search" placeholder="Búsqueda">
+		</form>
+	</div>
+</nav>
+
+
+<div id="offcanvas" class="uk-offcanvas" aria-hidden="true">
+	<div class="uk-offcanvas-bar uk-offcanvas-bar-show">
+		<div class="uk-panel">
+			<h1>Menú</h1>
+			<form class="uk-form">
+				<fieldset data-uk-margin>
+					<a href="#my-id" class="uk-button uk-width-1-1 uk-button-primary uk-button-large" data-uk-modal>Nuevo Registro</a>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<div id="my-id" class="uk-modal">
+	<div class="uk-modal-dialog uk-modal-dialog-blank">
+		<button class="uk-modal-close uk-close" type="button"></button>
+		<div class="uk-grid" data-uk-grid-margin="">
+			<div class="uk-width-medium-1-2 uk-height-viewport uk-cover-background" style="background-image: url('images/logo.svg'); width: 40%; margin-left: 5%;"></div>
+			<div class="uk-width-medium-1-2" style="margin: 15px;">
+				<div class="uk-block">
+					<h1>Nuevo Registro</h1>
+					<%= render partial: 'form' %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
