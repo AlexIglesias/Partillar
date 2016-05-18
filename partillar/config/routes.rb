@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/', to: "contents#index"
 
-  resources :contents
+  resources :contents, except: [:index]
 
   namespace :admin do
     resources :categories
