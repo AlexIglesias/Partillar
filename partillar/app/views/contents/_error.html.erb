@@ -1,0 +1,8 @@
+<% if record.errors.present? %>
+	<div class="uk-alert uk-alert-danger uk-alert-medium" data-uk-alert>
+		<% record.errors.full_messages.each do |error| %>
+	   		<a href="" class="uk-alert-close uk-close"></a>
+	    	<p><%= error %></p>
+	    <% end %>
+	</div>
+<% end %>

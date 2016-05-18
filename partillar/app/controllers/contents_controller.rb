@@ -4,6 +4,7 @@ class ContentsController < ApplicationController
   def index
     content = Content.all
     @curated_content = content.where(curated: true)
+    @content = Content.new
   end
 
   def show
@@ -19,11 +20,13 @@ class ContentsController < ApplicationController
     @content = Content.new(content_params)
     check_location(params[:content][:location])
     respond_to do |format|
-      if @content.save
-         format.html { redirect_to @content, notice: 'Content was successfully created.' }
-       else
-         format.html { render :new }
-       end
+      if verify_recaptcha(model: @content) && @content.save
+           format.html { redirect_to @content, notice: 'Content was successfully created.' }
+           flash[:notice] = "Content created succesfully"
+         else
+           format.html { render :new }
+           flash.now[:alert] = "Error!!!!"
+         end
      end
   end
 

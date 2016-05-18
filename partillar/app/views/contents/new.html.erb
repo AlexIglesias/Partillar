@@ -1,7 +1,15 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+<div class="uk-alert uk-alert-warning" data-uk-alert>
+    <a href="" class="uk-alert-close uk-close"></a>
+    <p><%= flash[:notice]  %></p>
+</div>
+	
+<% end %>
+<%= render "error", record: @content  %>
+	<div class="uk-width-2-3">
+		<div class="uk-block">
+			<%= render 'form' %>
 
-<h1>New Content</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', contents_path %>
+			<%= link_to 'Back', contents_path, class: "uk-button" %>
+		</div>
+	</div>

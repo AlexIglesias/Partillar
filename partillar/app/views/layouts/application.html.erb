@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Partillar</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+		<title>Partillar</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		
+		<div class="uk-grid">
+			<div class="uk-width-1-4">
+				<nav class="uk-navbar">
+					<div class="uk-navbar">
+						<div class="uk-navbar-content">
+							<form class="uk-search" data-uk-search="">
+								<input class="uk-search-field" type="search" placeholder="Búsqueda">
+							</form>
+						</div>
+					</div>
+				</nav>
+				<form class="uk-form">
+					<fieldset data-uk-margin>
+						<a href="#my-id" class="uk-button uk-width-1-1 uk-button-primary uk-button-large" data-uk-modal>Nuevo Registro</a>
+					</fieldset>
+					<div id="my-id" class="uk-modal">
+						<div class="uk-modal-dialog uk-modal-dialog-blank">
+							<button class="uk-modal-close uk-close" type="button"></button>
+							<div class="uk-grid" data-uk-grid-margin="">
+								<div class="uk-width-medium-1-2 uk-height-viewport uk-cover-background" style="background-image: url('images/logo.svg'); width: 40%; margin-left: 5%;"></div>
+								<div class="uk-width-medium-1-2" style="margin: 15px;">
+									<div class="uk-block">
+										<h1>Nuevo Registro</h1>
+	                                    <%= render partial: 'contents/form' %>
+	                                </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			
+			<div class="uk-width-3-4">
+				<%= yield %>
+			</div>
+		</div>
+	</body>
 </html>
