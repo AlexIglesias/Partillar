@@ -1,3 +1,18 @@
+// Variables
+$nav-search-color: #fff;
+$navbar-brand-font-size: 20px;
+$navbar-brand-color: #fff;
+$search-width: 200px;
+$search-focus-width: 300px;
+$search-height: 50px;
+$search-color: #fff;
+$search-placeholder-color: #fff;
+$search-icon-size: 16px;
+$search-icon-color: #fff;
+$navbar-toggle-font-size: 20px;
+
+
+
 @import "font-awesome";
 @import "uikit";
 @import "uikit-components";
@@ -7,6 +22,29 @@
     background-size: contain; 
     background-repeat: no-repeat;
 }
+
+.uk-navbar {
+    background: #35363A;
+    color: #fff;
+    height: 55px;
+}
+.uk-navbar-brand {
+	margin-top: 10px;
+}
+.uk-navbar-brand:hover {
+	color: #0099cc;
+}
+.uk-navbar-toggle:after {
+    content: "";
+    font-family: FontAwesome;
+    vertical-align: middle;
+    color: white;
+}
+.uk-search-field {
+	border-bottom: 2px solid #0099cc;
+	margin-top: 1px;
+}
+
 #map {
 	height:100vh;
 }

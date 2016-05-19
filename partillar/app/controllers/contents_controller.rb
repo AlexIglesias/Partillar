@@ -9,10 +9,12 @@ class ContentsController < ApplicationController
 
   def show
     @content = Content.find(params[:id])
+
   end
 
   def new
     @content = Content.new
+    render json: @content, status: 201
   end
 
   def create
@@ -22,6 +24,7 @@ class ContentsController < ApplicationController
     respond_to do |format|
       if verify_recaptcha(model: @content) && @content.save
            format.html { redirect_to @content, notice: 'Content was successfully created.' }
+           format.json @content
            flash[:notice] = "Content created succesfully"
          else
            format.html { render :new }
