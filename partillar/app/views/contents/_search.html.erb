@@ -1,0 +1,4 @@
+<%= form_tag("/search", method: "get", class: "uk-search js-search-form") do %>
+  <%= search_field(:content, :title, class: "uk-search-field js-search-title", placeholder: "Búsqueda") %>
+  <%= submit_tag('',style: 'width:0;height:0;display:none;') %>
+<% end %>

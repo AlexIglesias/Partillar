@@ -7,9 +7,16 @@ class ContentsController < ApplicationController
     @content = Content.new
   end
 
+  def search
+    if params[:content][:title]
+      @content = Content.search(params[:content][:title])
+    else
+      @content = Content.all
+    end
+  end
+
   def show
     @content = Content.find(params[:id])
-
   end
 
   def new
@@ -23,8 +30,8 @@ class ContentsController < ApplicationController
     check_location(params[:content][:location])
     respond_to do |format|
       if verify_recaptcha(model: @content) && @content.save
-           format.html { redirect_to @content, notice: 'Content was successfully created.' }
-           format.json @content
+           format.html { redirect_to '/', notice: 'Content was successfully created.' }
+           format.json { render json: @content }
            flash[:notice] = "Content created succesfully"
          else
            format.html { render :new }

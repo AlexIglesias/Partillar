@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/', to: "contents#index"
+  get '/search', to: 'contents#search', defaults: { format: :json }
 
   resources :contents, except: [:index]
 

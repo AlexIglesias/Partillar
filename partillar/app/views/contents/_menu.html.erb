@@ -1,27 +1,15 @@
-<!-- <nav class="uk-navbar">
-	<a href="#" class="uk-navbar-toggle" data-uk-offcanvas="{target:'#offcanvas'}"></a>
-	<div class="uk-navbar-content uk-navbar-center">
-		<a class="uk-navbar-brand" href="#">Partillar</a>
-	</div>
-	
-	<div class="uk-navbar-flip">
-		<form class="uk-search" data-uk-search="">
-			<input class="uk-search-field" type="search" placeholder="Búsqueda">
-		</form>
-	</div>
-</nav> -->
+<!-- NavBar -->
 
 <nav class="uk-navbar">
 	<a href="#" class="uk-navbar-toggle" data-uk-offcanvas="{target:'#offcanvas'}"></a>
 	<div class="uk-navbar-flip">
-		<form class="uk-search" data-uk-search="">
-			<input class="uk-search-field" type="search" placeholder="Búsqueda">
-		</form>
+		<%= render partial: 'search' %>
 	</div>
 	<div class="uk-navbar-content uk-navbar-center uk-navbar-brand">PARTILLAR</div>
 </nav>
 
 
+<!-- Menú OffCanvas -->
 
 
 <div id="offcanvas" class="uk-offcanvas" aria-hidden="true">
@@ -36,6 +24,9 @@
 		</div>
 	</div>
 </div>
+
+<!-- New Register Modal -->
+
 <div id="my-id" class="uk-modal">
 	<div class="uk-modal-dialog uk-modal-dialog-blank">
 		<button class="uk-modal-close uk-close" type="button"></button>

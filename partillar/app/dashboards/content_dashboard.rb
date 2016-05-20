@@ -30,7 +30,7 @@ class ContentDashboard < Administrate::BaseDashboard
     :title,
     :location,
     :source,
-    :id,
+    :curated,
 
   ].freeze
 
