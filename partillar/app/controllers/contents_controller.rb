@@ -30,28 +30,28 @@ class ContentsController < ApplicationController
     check_location(params[:content][:location])
     respond_to do |format|
       if verify_recaptcha(model: @content) && @content.save
-           format.html { redirect_to '/', notice: 'Content was successfully created.' }
-           format.json { render json: @content }
-           flash[:notice] = "Content created succesfully"
-         else
-           format.html { render :new }
-           flash.now[:alert] = "Error!!!!"
-         end
-     end
+        format.html { redirect_to '/', notice: 'Content was successfully created.' }
+        format.json { render json: @content }
+        flash[:notice] = "Content created succesfully"
+      else
+        format.html { render :new }
+        flash.now[:alert] = "Error!!!!"
+      end
+    end
   end
 
-private
-    def content_params
-      params.require(:content).permit(:source, :title, :media_url, :description, :category_id)
-    end
+  private
+  def content_params
+    params.require(:content).permit(:source, :title, :media_url, :description, :category_id)
+  end
 
-    def check_location(location)
-      geo_location = GoogleGeocoder.geocode(location)
-       if geo_location.success
-          @content.build_location(
-            name: geo_location.city,
-            latitude: geo_location.lat,
-            longitude: geo_location.lng)
-       end
+  def check_location(location)
+    geo_location = GoogleGeocoder.geocode(location)
+    if geo_location.success
+      @content.build_location(
+        name: geo_location.city,
+        latitude: geo_location.lat,
+      longitude: geo_location.lng)
     end
+  end
 end

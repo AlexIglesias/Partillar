@@ -1,4 +1,6 @@
 // Variables
+$principal-color: #0099CC;
+$secondary-color: #35363A;
 $nav-search-color: #fff;
 $navbar-brand-font-size: 20px;
 $navbar-brand-color: #fff;
@@ -10,13 +12,17 @@ $search-placeholder-color: #fff;
 $search-icon-size: 16px;
 $search-icon-color: #fff;
 $navbar-toggle-font-size: 20px;
-
+$dropdown-navbar-background: $secondary-color;
+$navbar-nav-hover-background: $secondary-color;
 
 
 @import "font-awesome";
 @import "uikit";
 @import "uikit-components";
 
+h3 {
+    margin: 5px 5px -5px 5px;
+}
 .uk-cover-background {
     background-position: 50% 50%;
     background-size: contain; 
@@ -24,7 +30,7 @@ $navbar-toggle-font-size: 20px;
 }
 
 .uk-navbar {
-    background: #35363A;
+    background: $secondary-color;
     color: #fff;
     height: 55px;
 }
@@ -32,7 +38,7 @@ $navbar-toggle-font-size: 20px;
 	margin-top: 10px;
 }
 .uk-navbar-brand:hover {
-	color: #0099cc;
+	color: $principal-color;
 }
 .uk-navbar-toggle:after {
     content: "";
@@ -41,8 +47,44 @@ $navbar-toggle-font-size: 20px;
     color: white;
 }
 .uk-search-field {
-	border-bottom: 2px solid #0099cc;
+	border-bottom: 2px solid $principal-color;
 	margin-top: 1px;
+    background-color: secondary-color;
+}
+
+.border {
+    border-bottom: 2px solid $principal-color;
+    margin-top: -8px;
+}
+.border-top {
+    border-top: 2px solid $principal-color;
+    margin-top: -5px;
+}
+
+.uk-navbar-nav {
+    padding-top: 3px;
+}
+
+.uk-navbar-nav > li > a {
+    height: 55px;
+    color: #fff;
+    font-size: 16px;
+    padding-top: 10px;
+}
+.uk-navbar > li.uk-open > a {
+    background: $secondary-color;
+    color: #fff;
+}
+.uk-navbar-nav > li:hover > a {
+    background: $secondary-color;
+    color: #fff;
+}
+.uk-dropdown-navbar,
+.uk-navbar-nav > li:hover > a,
+.uk-navbar-nav > li > a:focus,
+.uk-navbar > li.uk-open > a {
+    background: $secondary-color;
+    color: #fff;
 }
 
 #map {
@@ -56,7 +98,7 @@ $navbar-toggle-font-size: 20px;
     padding: 10px;
     background-color: #48b5e9;
     color: white;
-    margin: 5px;
+    margin-left: 5px;
     border-radius: 4px 4px 0 0; 
 }
 .gm-style-iw {

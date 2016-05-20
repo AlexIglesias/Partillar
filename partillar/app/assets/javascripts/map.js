@@ -173,10 +173,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function createMarker(position, content) {
     console.log(content)
+    var icon = {
+        url: "images/map-marker.png"
+    }
     marker = new google.maps.Marker({
     position: position,
     animation: google.maps.Animation.DROP,
     map: map,
+    icon: icon
     });
     markers.push(marker);
     var contentInfoCard = '<div id="iw-container iw-bottom-gradient" class="">' +
@@ -189,6 +193,7 @@ function createMarker(position, content) {
                             
                         '</ul>' +
                         '</div>'
+
 
     var infowindow = new google.maps.InfoWindow({
         content: contentInfoCard
@@ -205,10 +210,10 @@ function createMarker(position, content) {
         var iwCloseBtn = iwOuter.next();
         iwCloseBtn.css({
           opacity: '1', 
-          right: '3px', top: '3px',
-          border: '7px solid #48b5e9', 
-          'border-radius': '13px', 
-          'box-shadow': '0 0 2px #3990B9' 
+          right: '14px', top: '5px',
+          border: '4px solid #48b5e9', 
+          'border-radius': '20px', 
+          'box-shadow': '0 0 3px #3990B9' 
         });
         iwCloseBtn.mouseout(function(){
           $(this).css({opacity: '1'});

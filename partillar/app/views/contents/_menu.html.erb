@@ -1,17 +1,29 @@
 <!-- NavBar -->
+<nav class="uk-navbar uk-navbar-attached">
+	<ul class="uk-navbar-nav">
+		<li class="uk-parent border" data-uk-dropdown="" aria-haspopup="true" aria-expanded="false">
+			<a href="" class="">Menú</a>
+			<div class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom  border-top" style="top: 40px; left: 0px;">
+				<ul class="uk-nav uk-nav-navbar">
+					<li><a href="#my-id" class="uk-button uk-width-1-1 uk-button-primary uk-button-large" data-uk-modal>Nuevo Registro</a></li>
+					<li><a href="#">Another item</a></li>
+					<li class="uk-nav-header">Header</li>
+					<li><a href="#">Item</a></li>
+					<li><a href="#">Another item</a></li>
+					<li class="uk-nav-divider"></li>
+					<li><a href="#">Separated item</a></li>
+				</ul>
+			</div>
+		</li>
+	</ul>
 
-<nav class="uk-navbar">
-	<a href="#" class="uk-navbar-toggle" data-uk-offcanvas="{target:'#offcanvas'}"></a>
 	<div class="uk-navbar-flip">
 		<%= render partial: 'search' %>
 	</div>
 	<div class="uk-navbar-content uk-navbar-center uk-navbar-brand">PARTILLAR</div>
 </nav>
 
-
 <!-- Menú OffCanvas -->
-
-
 <div id="offcanvas" class="uk-offcanvas" aria-hidden="true">
 	<div class="uk-offcanvas-bar uk-offcanvas-bar-show">
 		<div class="uk-panel">
@@ -24,9 +36,7 @@
 		</div>
 	</div>
 </div>
-
 <!-- New Register Modal -->
-
 <div id="my-id" class="uk-modal">
 	<div class="uk-modal-dialog uk-modal-dialog-blank">
 		<button class="uk-modal-close uk-close" type="button"></button>
