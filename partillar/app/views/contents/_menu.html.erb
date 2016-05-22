@@ -5,7 +5,7 @@
 			<a href="" class="">Menú</a>
 			<div class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom  border-top" style="top: 40px; left: 0px;">
 				<ul class="uk-nav uk-nav-navbar">
-					<li><a href="#my-id" class="uk-button uk-width-1-1 uk-button-primary uk-button-large" data-uk-modal>Nuevo Registro</a></li>
+					<li><a href="/contents/new" class="">Nuevo Registro</a></li>
 					<li><a href="#">Another item</a></li>
 					<li class="uk-nav-header">Header</li>
 					<li><a href="#">Item</a></li>
@@ -22,32 +22,3 @@
 	</div>
 	<div class="uk-navbar-content uk-navbar-center uk-navbar-brand">PARTILLAR</div>
 </nav>
-
-<!-- Menú OffCanvas -->
-<div id="offcanvas" class="uk-offcanvas" aria-hidden="true">
-	<div class="uk-offcanvas-bar uk-offcanvas-bar-show">
-		<div class="uk-panel">
-			<h1>Menú</h1>
-			<form class="uk-form">
-				<fieldset data-uk-margin>
-					<a href="#my-id" class="uk-button uk-width-1-1 uk-button-primary uk-button-large" data-uk-modal>Nuevo Registro</a>
-				</fieldset>
-			</form>
-		</div>
-	</div>
-</div>
-<!-- New Register Modal -->
-<div id="my-id" class="uk-modal">
-	<div class="uk-modal-dialog uk-modal-dialog-blank">
-		<button class="uk-modal-close uk-close" type="button"></button>
-		<div class="uk-grid" data-uk-grid-margin="">
-			<div class="uk-width-medium-1-2 uk-height-viewport uk-cover-background" style="background-image: url('images/logo.svg'); width: 40%; margin-left: 5%;"></div>
-			<div class="uk-width-medium-1-2" style="margin: 15px;">
-				<div class="uk-block">
-					<h1>Nuevo Registro</h1>
-					<%= render partial: 'form' %>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516082216) do
+ActiveRecord::Schema.define(version: 20160522150531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +27,15 @@ ActiveRecord::Schema.define(version: 20160516082216) do
     t.string   "title"
     t.string   "media_url"
     t.text     "description"
-    t.boolean  "curated",     default: false
+    t.boolean  "curated",            default: false
     t.integer  "category_id"
     t.integer  "location_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "contents", ["location_id"], name: "index_contents_on_location_id", using: :btree

@@ -7,13 +7,26 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		
-			<div class="uk-grid uk-grid-collapse uk-flex">
-				<div class="uk-width-1-1">
-					<%= render partial: 'contents/menu', class: 'uk-float-left' %>
-					<%= yield %>
+		<div class="uk-grid uk-grid-collapse uk-flex">
+			<div class="uk-width-1-1">	
+				<%= render partial: 'contents/menu'%>
+				<div class="uk-width-1-2 uk-container-center uk-animation-fade">	
+					<% flash.each do |key, value| %>
+				    	<div class="uk-alert-<%= key %>" data-uk-alert>
+				    		<a href="" class="uk-alert-close uk-close"></a>
+				    		<p><%= value %></p>	
+				    	</div>
+				    <% end %>
 				</div>
+				
+				<%= yield %>
 			</div>
+			<!-- div class="footer">
+				<div class="uk-width-1-1">
+			
+				</div>
+			</div> -->
+		</div>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqQ5xwuYlxbqjCILr31n97xzAC9hSPcEg&callback=initMap"
         async defer></script>
 	</body>

@@ -184,12 +184,12 @@ function createMarker(position, content) {
     });
     markers.push(marker);
     var contentInfoCard = '<div id="iw-container iw-bottom-gradient" class="">' +
-                         '<h3 class="iw-title">' + content.title + '</h3>' +
+                         '<h3 class="iw-title">' + 'Titulo: ' + content.title + '</h3>' +
                             '<hr>' +
                             '<ul class="">' +
-                            '<li>' + content.location.name + '</li>' +
-                            '<li>' + content.source + '</li>' +
-                            '<li>' + '<a href="/contents/' + content.id + '">' + 'more info' + '</a>'  + '</li>' 
+                            '<li>' + 'Localización: ' + content.location.name + '</li>' +
+                            '<li>' + 'Fuente: ' + content.source + '</li>' +
+                            '<li>' + '<a href="/contents/' + content.id + '" class="uk-icon-hover uk-icon-plus-square-o uk-icon-small">' + ' Ver más' + '</a>'  + '</li>' 
                             
                         '</ul>' +
                         '</div>'

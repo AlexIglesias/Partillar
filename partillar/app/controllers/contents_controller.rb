@@ -21,7 +21,7 @@ class ContentsController < ApplicationController
 
   def new
     @content = Content.new
-    render json: @content, status: 201
+    render :new
   end
 
   def create
@@ -30,19 +30,25 @@ class ContentsController < ApplicationController
     check_location(params[:content][:location])
     respond_to do |format|
       if verify_recaptcha(model: @content) && @content.save
-        format.html { redirect_to '/', notice: 'Content was successfully created.' }
+        flash[:success] = "El contenido se ha creado correctamente. En cuanto se verifique, estará disponible para todo el mundo"
+        format.html { redirect_to '/'}
         format.json { render json: @content }
-        flash[:notice] = "Content created succesfully"
       else
+        flash[:danger] = "Ups!! Parece que ha habido algún error. Revisa los campos del formulario"
         format.html { render :new }
-        flash.now[:alert] = "Error!!!!"
       end
     end
   end
 
   private
   def content_params
-    params.require(:content).permit(:source, :title, :media_url, :description, :category_id)
+    params.require(:content).permit(
+      :source,
+      :title,
+      :media_url,
+      :description,
+      :image,
+      :category_id)
   end
 
   def check_location(location)

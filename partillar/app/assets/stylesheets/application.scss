@@ -1,6 +1,24 @@
 // Variables
+@import url(https://fonts.googleapis.com/css?family=Josefin+Slab);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display);
+
+$font-heading: 'Josefin Sans', sans-serif;
+$font-text: 'Playfair Display', serif;
+$base-body-font-family: $font-text;
+$base-body-font-size: 16px;
+$base-code-font-family: $font-text;
+$base-code-font-size: 14px;
+$base-heading-font-family: $font-heading;
+$base-pre-font-family: $font-text;
+$base-pre-font-size: 14px;
+$navbar-nav-font-family: $font-heading;
+$navbar-nav-font-size: 16px;
+
 $principal-color: #0099CC;
 $secondary-color: #35363A;
+$button-large-font-size: 24px;
+$button-primary-background: $principal-color;
+$button-color: $principal-color;
 $nav-search-color: #fff;
 $navbar-brand-font-size: 20px;
 $navbar-brand-color: #fff;
@@ -20,8 +38,36 @@ $navbar-nav-hover-background: $secondary-color;
 @import "uikit";
 @import "uikit-components";
 
+li > a {
+    height: 55px;
+    color: #fff;
+    font-size: 16px;
+    padding-top: 10px;
+}
+li {
+    color: #fff;
+}
+
+.uk-block {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.uk-form input, .uk-form textarea {
+    font-size: $button-large-font-size;
+    color: #fff;
+}
+
+
 h3 {
     margin: 5px 5px -5px 5px;
+}
+.footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:55px;
+    width:100%;
+    background: $secondary-color;
 }
 .uk-cover-background {
     background-position: 50% 50%;
@@ -36,16 +82,12 @@ h3 {
 }
 .uk-navbar-brand {
 	margin-top: 10px;
+    font-size: 30px;
 }
 .uk-navbar-brand:hover {
 	color: $principal-color;
 }
-.uk-navbar-toggle:after {
-    content: "";
-    font-family: FontAwesome;
-    vertical-align: middle;
-    color: white;
-}
+
 .uk-search-field {
 	border-bottom: 2px solid $principal-color;
 	margin-top: 1px;
@@ -87,6 +129,28 @@ h3 {
     color: #fff;
 }
 
+.uk-panel, .uk-panel:hover {
+    text-decoration: none;
+    border: 2px solid $principal-color;
+    margin-top: 5px;
+    padding: 20px;
+} 
+.uk-panel-title {
+    font-size: 24px;
+}
+.uk-form-label {
+    margin-bottom: 10px;
+}
+
+.uk-form input, .uk-form textarea {
+    font-size: 16px;
+}
+.uk-form textarea {
+    color: black;
+}
+
+
+
 #map {
 	height:100vh;
 }
@@ -121,3 +185,11 @@ h3 {
     background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
     background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
 }
+
+
+
+
+
+
+
+

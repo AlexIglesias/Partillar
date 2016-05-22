@@ -1,31 +1,31 @@
-<% if flash[:notice] %>
-  <p><%= flash[:notice]  %></p>
-<% end %>
+<div class="uk-width-medium-2-3 uk-container-center">
 
-<p>
-  <strong>Title:</strong>
-  <%= @content.title %>
-</p>
+  <div class="uk-panel">
+    <article class="uk-article">
+      <h1 class="uk-article-title uk-text-center"><%= @content.title %></h1>
+      <hr class="uk-article-divider">
+      <p class="uk-article-meta">Fuente/Colaborador: <%= @content.source %>  </p>
+      <p class="uk-article-meta">Categoría: <%= @content.category.name %></p>
+      <hr class="uk-article-divider">
+      <p>
+        <strong>Localización:</strong>
+        <%= @content.location.name %>
+      </p>
+      <hr class="uk-article-divider">
+      <p>
+        <strong>Descripción:</strong>
+        <p><%= @content.description %></p>
+      </p>
+      <hr class="uk-article-divider">
+      <p>
+        <strong>Video/Audio:</strong>
+        <a href=" <%= @content.media_url %>" data-uk-lightbox data-lightbox-type="video" class="uk-icon-hover uk-icon-play uk-icon-medium"></a>
+        <img src="" alt="">
+        <%= link_to image_tag(@content.image.url, class: 'media-object'), @content.image.url, target: '_blank' %>
+      </p>
+      <%= link_to 'Volver atrás', '/', class: "uk-button uk-width-1-1 uk-button-primary uk-button-large" %>
+    </article>
+  </div>
+</div>
 
-<p>
-  <strong>Source:</strong>
-  <%= @content.source %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @content.location.name %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @content.description %>
-</p>
-
-<p>
-  <strong>URL:</strong>
-  <a href=" <%= @content.media_url %>" data-uk-lightbox data-lightbox-type="video" class="uk-button"> Video</a>
-</p>
-
-
-<%= link_to 'Back', '/' %>
+  
