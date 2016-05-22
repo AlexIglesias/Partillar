@@ -3,10 +3,10 @@ class Content < ActiveRecord::Base
               styles: { thumb: ["64x64#", :jpg],
                       original: ['500x500>', :jpg] },
               convert_options: { thumb: "-quality 75 -strip",
-                                original: "-quality 85 -strip" }
+                                original: "-quality 85 -strip" },
               storage: :s3,
-              s3_credentials: {access_key_id: ENV["AKIAILJD2EO27BOUG4KA"],
-                secret_access_key: ENV["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"]},
+              s3_credentials: {access_key_id: ENV["s3_access_key_id"],
+                secret_access_key: ENV["s3_secret_access_key"]},
               bucket: "partillar"
 
   validates_attachment :image,
