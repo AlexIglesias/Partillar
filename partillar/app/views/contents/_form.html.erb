@@ -64,12 +64,11 @@
       <div class="uk-container">
         <div class="uk-grid uk-grid-match" data-uk-grid-margin="">
           <div class="uk-width-medium-1-2 uk-row-first">
-            <strong><%= f.label :Imágenes, class: "uk-form-label" %></strong>
-            <%= f.file_field :image, multiple: true, class: "uk-width-1-1" %>
+            <div>
+              <%= recaptcha_tags %>
+            </div>
           </div>
-          <div>
-            <%= recaptcha_tags %>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -87,6 +86,6 @@
           </div>
         </div>
       </div>
-      
     </div>
+  </div>
 <% end %>

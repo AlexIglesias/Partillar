@@ -1,0 +1,93 @@
+<div class="uk-width-medium-2-3 uk-container-center">
+  <div class="uk-panel">
+    <article class="uk-article">
+      <h1 class="uk-article-title uk-text-center">Editar Usuario</h1>
+      <hr class="uk-article-divider">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="uk-form-row">
+        <div class="uk-row">
+          <div class="uk-container">
+            <div class="uk-grid uk-grid-match" data-uk-grid-margin="">
+              <div class="uk-width-medium-1-1 uk-row-first">
+                <strong><%= f.label :email, class: "uk-form-label" %></strong>
+                <%= f.email_field :email, autofocus: true, class: "uk-width-1-1" %>
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="uk-form-row">
+        <div class="uk-row">
+          <div class="uk-container">
+            <div class="uk-grid uk-grid-match" data-uk-grid-margin="">
+              <div class="uk-width-medium-1-1 uk-row-first">
+                <strong><%= f.label :Contraseña, class: "uk-form-label" %></strong>
+                <%= f.password_field :password, autocomplete: "off", class: "uk-width-1-1" %>
+                <i>(déjalo en blanco si no quieres cambiarlo)</i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="uk-form-row">
+        <div class="uk-row">
+          <div class="uk-container">
+            <div class="uk-grid uk-grid-match" data-uk-grid-margin="">
+              <div class="uk-width-medium-1-1 uk-row-first">
+                <strong><%= f.label :Confirmar_contraseña, class: "uk-form-label" %></strong>
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "uk-width-1-1" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="uk-form-row">
+        <div class="uk-row">
+          <div class="uk-container">
+            <div class="uk-grid uk-grid-match" data-uk-grid-margin="">
+              <div class="uk-width-medium-1-1 uk-row-first">
+                <strong><%= f.label :Contraseña_actual, class: "uk-form-label" %></strong>
+                <%= f.password_field :current_password, autocomplete: "off", class: "uk-width-1-1" %>
+                <i>(escribe tu contraseña actual para confirmar los cambios)</i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="uk-form-row">
+        <div class="uk-row">
+          <div class="uk-container">
+            <div class="uk-grid uk-grid-match" data-uk-grid-margin="">
+              <div class="uk-width-medium-1-1 uk-row-first">
+                <%= f.submit 'Actualizar', class: "uk-button uk-width-1-1 uk-button-primary uk-button-large" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <hr class="uk-article-divider">
+      <h3 class="uk-text-center">Cancelar la cuenta</h3>
+      <hr class="uk-article-divider">
+      <div class="uk-form-row">
+        <div class="uk-block">
+          <div class="uk-container">
+            <div class="uk-grid uk-grid-match" data-uk-grid-margin="">
+              <div class="uk-width-medium-1-2 uk-row-first">
+                <%= button_to "Cancelar cuenta", registration_path(resource_name), data: { confirm: "Estás seguro?" }, method: :delete, class: "uk-button uk-width-1-1 uk-button-primary uk-button-large" %>
+              </div>
+              <div class="uk-width-medium-1-2">
+                <%= link_to "Volver Atrás", :back, class: "uk-button uk-width-1-1 uk-button-large" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>  

@@ -19,9 +19,7 @@
       <hr class="uk-article-divider">
       <p>
         <strong>Video/Audio:</strong>
-        <a href=" <%= @content.media_url %>" data-uk-lightbox data-lightbox-type="video" class="uk-icon-hover uk-icon-play uk-icon-medium"></a>
-        <img src="" alt="">
-        <%= link_to image_tag(@content.image.url, class: 'media-object'), @content.image.url, target: '_blank' %>
+        <a href=" <%= @content.media_url %>" data-uk-lightbox data-lightbox-type="video" class="uk-icon-hover uk-icon-play uk-icon-medium uk-button-large"></a>
       </p>
       <%= link_to 'Volver atrás', '/', class: "uk-button uk-width-1-1 uk-button-primary uk-button-large" %>
     </article>

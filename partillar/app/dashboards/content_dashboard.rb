@@ -16,9 +16,12 @@ class ContentDashboard < Administrate::BaseDashboard
     media_url: Field::String,
     description: Field::Text,
     curated: Field::Boolean,
-    category_id: Field::Number,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
+    # image_file_name: Field::String,
+    # image_content_type: Field::String,
+    # image_file_size: Field::Number,
+    # image_updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -27,11 +30,10 @@ class ContentDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :title,
+    :category,
     :location,
+    :id,
     :source,
-    :curated,
-
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -45,9 +47,8 @@ class ContentDashboard < Administrate::BaseDashboard
     :media_url,
     :description,
     :curated,
-    :category_id,
     :created_at,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -60,8 +61,7 @@ class ContentDashboard < Administrate::BaseDashboard
     :title,
     :media_url,
     :description,
-    :curated,
-    :category_id,
+    :curated
   ].freeze
 
   # Overwrite this method to customize how contents are displayed

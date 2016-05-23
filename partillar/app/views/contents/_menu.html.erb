@@ -1,24 +1,27 @@
 <!-- NavBar -->
-<nav class="uk-navbar uk-navbar-attached">
+<nav class="uk-navbar uk-navbar-attached" data-uk-sticky>
 	<ul class="uk-navbar-nav">
 		<li class="uk-parent border" data-uk-dropdown="" aria-haspopup="true" aria-expanded="false">
 			<a href="" class="">Menú</a>
 			<div class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom  border-top" style="top: 40px; left: 0px;">
 				<ul class="uk-nav uk-nav-navbar">
-					<li><a href="/contents/new" class="">Nuevo Registro</a></li>
-					<li><a href="#">Another item</a></li>
-					<li class="uk-nav-header">Header</li>
-					<li><a href="#">Item</a></li>
-					<li><a href="#">Another item</a></li>
-					<li class="uk-nav-divider"></li>
-					<li><a href="#">Separated item</a></li>
+					<% if user_signed_in? %>
+						<li><a href="/show" style="color: #fff;">Perfil</a></li>
+						<li class="uk-nav-divider"></li>
+						<li><a href="/contents/new" style="color: #fff;">Nuevo Registro</a></li>
+						<li class="uk-nav-divider"></li>
+						<li><%= link_to 'Salir', destroy_user_session_path, style: "color: #fff", method: 'DELETE' %></li>
+					<% else %>
+						<li><%= link_to 'Registro', new_user_registration_path, style: "color: #fff" %></li>
+						<li class="uk-nav-divider"></li>
+						<li><%= link_to 'Login', new_user_session_path, style: "color: #fff" %></li>
+					<% end %>
 				</ul>
 			</div>
 		</li>
 	</ul>
-
 	<div class="uk-navbar-flip">
-		<%= render partial: 'search' %>
+		<%= render partial: 'contents/search' %>
 	</div>
 	<div class="uk-navbar-content uk-navbar-center uk-navbar-brand">PARTILLAR</div>
 </nav>

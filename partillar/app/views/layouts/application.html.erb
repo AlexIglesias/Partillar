@@ -13,8 +13,10 @@
 				<div class="uk-width-1-2 uk-container-center uk-animation-fade">	
 					<% flash.each do |key, value| %>
 				    	<div class="uk-alert-<%= key %>" data-uk-alert>
-				    		<a href="" class="uk-alert-close uk-close"></a>
-				    		<p><%= value %></p>	
+				    		<p>
+					    		<%= value %>
+					    		<a href="" class="uk-alert-close uk-close"></a>
+				    		</p>	
 				    	</div>
 				    <% end %>
 				</div>

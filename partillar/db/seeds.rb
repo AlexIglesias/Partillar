@@ -23,6 +23,11 @@ content2 = Content.create({source: "Mikel", title: "Prueba2", media_url: "https:
 content3 = Content.create({source: "Victor", title: "Prueba3", media_url: "https://goo.gl/YKErCJ", description: "Primera prueba de base de datos", curated: false, category_id:3 })
 content4 = Content.create({source: "Rixie", title: "Prueba4", media_url: "https://goo.gl/YKErCJ", description: "Primera prueba de base de datos", curated: true, category_id:2})
 
+paul, alia, leto = User.create([
+  {name: 'Paul Atreides',  email: 'paul@arrakis.com', password: 'ironhack', password_confirmation: 'ironhack'},
+  {name: 'Alia Atreides',  email: 'alia@arrakis.com',  password: 'ironhack', password_confirmation: 'ironhack'},
+  {name: 'Leto Atreides', email: 'leto@arrakis.com',  password: 'ironhack', password_confirmation: 'ironhack'}
+])
 
 
 

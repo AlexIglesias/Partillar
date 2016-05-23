@@ -10,8 +10,8 @@ class LocationDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     contents: Field::HasMany,
     id: Field::Number,
-    latitude: Field::String,
-    longitude: Field::String,
+    latitude: Field::Number.with_options(decimals: 2),
+    longitude: Field::Number.with_options(decimals: 2),
     name: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -23,8 +23,8 @@ class LocationDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :name,
     :contents,
+    :id,
     :latitude,
     :longitude,
   ].freeze
@@ -45,16 +45,16 @@ class LocationDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :name,
     :contents,
     :latitude,
     :longitude,
+    :name,
   ].freeze
 
   # Overwrite this method to customize how locations are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(location)
-  #   "Location ##{location.id}"
-  # end
+  def display_resource(location)
+    "#{location.name}"
+  end
 end

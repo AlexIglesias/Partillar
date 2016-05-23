@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+  get 'show', to: 'users#show'
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   get '/', to: "contents#index"
   get '/search', to: 'contents#search', defaults: { format: :json }
 
