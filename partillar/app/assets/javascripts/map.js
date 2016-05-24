@@ -118,44 +118,43 @@ function createMarker(){
     map: map
     });
 
-}
+};
 
+ajaxWrapper = function(undefined) {
 
+    _searchTitle = function () {
+        var data = document.getElementsByClassName('js-search-title');
+        var query = '/search?content[title]=' + data[0].value;
+        return _proxy('GET', query);
+    };
+    _proxy = function(method, url) {
+        return new Promise(function(resolve, reject) {
+            var xhr = new XMLHttpRequest();
 
+            xhr.open(method, url);
+            xhr.responseType = 'json';
 
+            xhr.onload = function() {
+                if (xhr.status === 200){
+                    resolve(xhr.response);
+                    console.log("Erroraco");
+                } else {
+                    reject(xhr.statusText);
+                }
+            };
+            xhr.onerror = function() {
+                reject('Error');
+            }
+            xhr.send();
+        });
+    };
+    return {
+        searchTitle    : _searchTitle
+    }
+}();
 
 document.addEventListener('DOMContentLoaded', function() {
-    ajaxWrapper = function() {
 
-        _searchTitle = function () {
-            var data = document.getElementsByClassName('js-search-title');
-            var query = '/search?content[title]=' + data[0].value;
-            return _proxy('GET', query);
-        };
-        _proxy = function(method, url) {
-            return new Promise(function(resolve, reject) {
-                var xhr = new XMLHttpRequest();
-
-                xhr.open(method, url);
-                xhr.responseType = 'json';
-
-                xhr.onload = function() {
-                    if (xhr.status === 200){
-                        resolve(xhr.response);
-                    } else {
-                        reject(xhr.statusText);
-                    }
-                };
-                xhr.onerror = function() {
-                    reject('Error');
-                }
-                xhr.send();
-            });
-        };
-        return {
-            searchTitle    : _searchTitle
-        }
-    }();
     document.getElementsByClassName('js-search-form')[0].addEventListener("submit", function(event){
         event.preventDefault();
         if (markers.length > 0) {

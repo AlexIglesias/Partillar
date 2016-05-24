@@ -16,9 +16,5 @@
 //= require uikit-components
 //= require_tree .
 
-document.addEventListener('DOMContentLoaded', function() {
-	ajaxWrapper.searchTitle();
-});
-
 
 
