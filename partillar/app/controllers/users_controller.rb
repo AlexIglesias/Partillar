@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
+
   def index
 
   end
 
   def show
-    @user = User.find_by(params[:id])
+    @contents = current_user.contents
   end
 
   def new

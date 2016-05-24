@@ -1,0 +1,22 @@
+<div class="uk-overflow-container">
+    <table class="uk-table uk-table-hover">
+        <thead>
+            <tr>
+                <th class="uk-text-center uk-text-bold ">Título</th>
+                <th class="uk-text-center uk-text-bold ">Categoría</th>
+                <th class="uk-text-center uk-text-bold ">Fecha de Publicación</th>
+                <th class="uk-text-center uk-text-bold ">Ver más</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @contents.each do |content| %>
+                <tr>
+                    <td class="uk-text-center"><%= content.title %></td>
+                    <td class="uk-text-center"><%= content.category.name %></td>
+                    <td class="uk-text-center"><%= content.created_at.strftime("%d-%m-%Y") %></td>
+                    <td class="uk-text-center"><a href="/contents/<%= content.id %>" class="uk-icon-button"><i class="uk-icon-plus-circle"></i></a></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

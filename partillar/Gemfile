@@ -20,6 +20,11 @@ gem 'administrate-field-image'
 
 gem 'figaro'
 
+gem 'redis'
+gem 'redis-namespace'
+gem 'redis-rails'
+gem 'redis-rack-cache'
+
 # gem "paperclip", "~> 4.2"
 # gem 'aws-sdk', '~> 1.6'
 # gem 'acts_as_tree', '~> 2.4'

@@ -27,6 +27,7 @@ class ContentsController < ApplicationController
   def create
     @category = Category.all
     @content = Content.new(content_params)
+    @content.user = current_user
     check_location(params[:content][:location])
     respond_to do |format|
       if verify_recaptcha(model: @content) && @content.save
@@ -57,7 +58,7 @@ class ContentsController < ApplicationController
       @content.build_location(
         name: geo_location.city,
         latitude: geo_location.lat,
-      longitude: geo_location.lng)
+        longitude: geo_location.lng)
     end
   end
 end

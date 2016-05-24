@@ -1,5 +1,4 @@
 <div class="uk-width-medium-2-3 uk-container-center">
-
   <div class="uk-panel">
     <article class="uk-article">
       <h1 class="uk-article-title uk-text-center"><%= @content.title %></h1>
@@ -21,9 +20,27 @@
         <strong>Video/Audio:</strong>
         <a href=" <%= @content.media_url %>" data-uk-lightbox data-lightbox-type="video" class="uk-icon-hover uk-icon-play uk-icon-medium uk-button-large"></a>
       </p>
-      <%= link_to 'Volver atrás', '/', class: "uk-button uk-width-1-1 uk-button-primary uk-button-large" %>
+      
+      <div class="uk-form-row">
+        <div class="uk-block">
+          <div class="uk-container">
+            <div class="uk-grid uk-grid-match" data-uk-grid-margin="">
+              <% if user_signed_in? %>
+              <div class="uk-width-medium-1-2 uk-row-first">
+                <%= link_to 'Ir al mapa', '/', class: "uk-button uk-width-1-1 uk-button-primary uk-button-large" %>
+              </div>
+              <div class="uk-width-medium-1-2">
+                <%= link_to 'Ver perfil', show_path, class: "uk-button uk-width-1-1 uk-button-primary uk-button-large" %>
+              </div>
+              <% else %>
+              <div class="uk-width-medium-1-2 uk-row-first">
+                <%= link_to 'Volver atrás', '/', class: "uk-button uk-width-1-1 uk-button-primary uk-button-large" %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     </article>
   </div>
 </div>
-
-  

@@ -10,6 +10,7 @@ class ContentDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     category: Field::BelongsTo,
     location: Field::BelongsTo,
+    user: Field::BelongsTo,
     id: Field::Number,
     source: Field::String,
     title: Field::String,
@@ -17,11 +18,11 @@ class ContentDashboard < Administrate::BaseDashboard
     description: Field::Text,
     curated: Field::Boolean,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
-    # image_file_name: Field::String,
-    # image_content_type: Field::String,
-    # image_file_size: Field::Number,
-    # image_updated_at: Field::DateTime,
+    updated_at: Field::DateTime,
+    image_file_name: Field::String,
+    image_content_type: Field::String,
+    image_file_size: Field::Number,
+    image_updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -32,8 +33,8 @@ class ContentDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :category,
     :location,
+    :user,
     :id,
-    :source,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -41,14 +42,13 @@ class ContentDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :category,
     :location,
+    :user,
     :id,
     :source,
     :title,
     :media_url,
     :description,
-    :curated,
-    :created_at,
-    :updated_at
+    :curated
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -57,6 +57,7 @@ class ContentDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :category,
     :location,
+    :user,
     :source,
     :title,
     :media_url,
@@ -67,7 +68,7 @@ class ContentDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how contents are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(content)
-  #   "Content ##{content.id}"
-  # end
+  def display_resource(content)
+    "#{content.title}"
+  end
 end
