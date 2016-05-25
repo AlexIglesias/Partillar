@@ -126,7 +126,7 @@ ajaxWrapper = function(undefined) {
 
     _searchTitle = function () {
         var data = document.getElementsByClassName('js-search-title');
-        var query = '/search?infocard[title]=' + data[0].value;
+        var query = '/search?infocards[title]=' + data[0].value;
         return _proxy('GET', query);
     };
     _proxy = function(method, url) {
@@ -139,7 +139,6 @@ ajaxWrapper = function(undefined) {
             xhr.onload = function() {
                 if (xhr.status === 200){
                     resolve(xhr.response);
-                    console.log("Erroraco");
                 } else {
                     reject(xhr.statusText);
                 }
@@ -164,8 +163,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         ajaxWrapper.searchTitle().then(function(response){
             response.infocards.forEach(function(infocard){
+                console.log(infocard);
+                console.log(response);
                 console.log(infocard.location.name, infocard.location.latitude, infocard.location.longitude);
-                createMarker({lat: infocard.location.latitude, lng: infocard.location.longitude}, infocard);
+                createMarker({lat: parseFloat(infocard.location.latitude), lng: parseFloat(infocard.location.longitude)}, infocard);
             });
         });
     });

@@ -9,11 +9,7 @@ class InfocardsController < ApplicationController
   end
 
   def search
-    if params[:infocard][:title]
-      @infocard = Infocard.search(params[:infocard][:title])
-    else
-      @infocard = Infocard.all
-    end
+      @infocard = Infocard.search(params[:infocards][:title])
   end
 
   def show
@@ -33,7 +29,7 @@ class InfocardsController < ApplicationController
     @category = Category.all
     @infocard = Infocard.new(infocard_params)
     @infocard.user = current_user
-    check_location(params[:infocard][:location])
+    check_location(params[:infocards][:location])
     respond_to do |format|
       if verify_recaptcha(model: @infocard) && @infocard.save
         flash[:success] = "El contenido se ha creado correctamente. En cuanto se verifique, estará disponible para todo el mundo"
