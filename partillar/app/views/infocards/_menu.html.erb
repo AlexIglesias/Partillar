@@ -8,7 +8,7 @@
 					<% if user_signed_in? %>
 						<li><a href="/show" style="color: #fff;">Perfil</a></li>
 						<li class="uk-nav-divider"></li>
-						<li><a href="/contents/new" style="color: #fff;">Nuevo Registro</a></li>
+						<li><a href="/infocards/new" style="color: #fff;">Nuevo Registro</a></li>
 						<li class="uk-nav-divider"></li>
 						<li><%= link_to 'Salir', destroy_user_session_path, style: "color: #fff", method: 'DELETE' %></li>
 					<% else %>
@@ -21,7 +21,7 @@
 		</li>
 	</ul>
 	<div class="uk-navbar-flip">
-		<%= render partial: 'contents/search' %>
+		<%= render partial: 'infocards/search' %>
 	</div>
-	<div class="uk-navbar-content uk-navbar-center uk-navbar-brand">PARTILLAR</div>
+	<div class="uk-navbar-content uk-navbar-center uk-navbar-brand"><a id="brand" href="/">Partillar</a></div>
 </nav>

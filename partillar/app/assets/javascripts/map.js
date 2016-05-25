@@ -2,6 +2,7 @@ var map;
 var ajaxWrapper;
 var markers = [];
 var marker;
+var lastOpenedInfoWindow;
 
 function initMap() {
 	var customMapType = new google.maps.StyledMapType([
@@ -112,19 +113,20 @@ map = new google.maps.Map(document.getElementById('map'), {
   map.setMapTypeId(customMapTypeId);
 }
 
+
+
 function createMarker(){
   var marker = new google.maps.Marker({
     position: position,
     map: map
     });
-
 };
 
 ajaxWrapper = function(undefined) {
 
     _searchTitle = function () {
         var data = document.getElementsByClassName('js-search-title');
-        var query = '/search?content[title]=' + data[0].value;
+        var query = '/search?infocard[title]=' + data[0].value;
         return _proxy('GET', query);
     };
     _proxy = function(method, url) {
@@ -161,17 +163,17 @@ document.addEventListener('DOMContentLoaded', function() {
             deleteMarkers();
         }
         ajaxWrapper.searchTitle().then(function(response){
-            response.contents.forEach(function(content){
-                console.log(content.location.name, content.location.latitude, content.location.longitude);
-                createMarker({lat: content.location.latitude, lng: content.location.longitude}, content);
+            response.infocards.forEach(function(infocard){
+                console.log(infocard.location.name, infocard.location.latitude, infocard.location.longitude);
+                createMarker({lat: infocard.location.latitude, lng: infocard.location.longitude}, infocard);
             });
         });
     });
 });
 
 
-function createMarker(position, content) {
-    console.log(content)
+function createMarker(position, infocard) {
+    console.log(infocard)
     var icon = {
         url: "images/map-marker.png"
     }
@@ -183,13 +185,12 @@ function createMarker(position, content) {
     });
     markers.push(marker);
     var contentInfoCard = '<div id="iw-container iw-bottom-gradient" class="">' +
-                         '<h3 class="iw-title">' + 'Titulo: ' + content.title + '</h3>' +
+                         '<h3 class="iw-title uk-text-center">' + infocard.title + '</h3>' +
                             '<hr>' +
                             '<ul class="">' +
-                            '<li>' + 'Localización: ' + content.location.name + '</li>' +
-                            '<li>' + 'Fuente: ' + content.source + '</li>' +
-                            '<li>' + '<a href="/contents/' + content.id + '" class="uk-icon-hover uk-icon-plus-square-o uk-icon-small">' + ' Ver más' + '</a>'  + '</li>' 
-                            
+                            '<li>' + 'Localización: ' + infocard.location.name + '</li>' +
+                            '<li>' + 'Fuente: ' + infocard.source + '</li>' +
+                            '<li>' + '<a href="/infocards/' + infocard.id + '" class="infowindow_link uk-icon-hover uk-icon-plus-square-o uk-icon-small" data-remote="true">' + ' Ver más' + '</a>'  + '</li>' 
                         '</ul>' +
                         '</div>'
 
@@ -198,7 +199,9 @@ function createMarker(position, content) {
         content: contentInfoCard
     });
     marker.addListener('click', function() {
+        closeLastOpenedInfoWindow();
         infowindow.open(map, this);
+        lastOpenedInfoWindow = infowindow;
         var iwOuter = $('.gm-style-iw');
         var iwBackground = iwOuter.prev();
         iwBackground.children(':nth-child(2)').css({'display' : 'none'});
@@ -231,7 +234,11 @@ function deleteMarkers() {
   clearMarkers();
   markers = [];
 }
-
+function closeLastOpenedInfoWindow() {
+    if (lastOpenedInfoWindow) {
+        lastOpenedInfoWindow.close();
+    }
+}
 
 
 

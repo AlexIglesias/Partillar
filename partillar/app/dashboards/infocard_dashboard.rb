@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class ContentDashboard < Administrate::BaseDashboard
+class InfocardDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -19,10 +19,6 @@ class ContentDashboard < Administrate::BaseDashboard
     curated: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    image_file_name: Field::String,
-    image_content_type: Field::String,
-    image_file_size: Field::Number,
-    image_updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -48,7 +44,9 @@ class ContentDashboard < Administrate::BaseDashboard
     :title,
     :media_url,
     :description,
-    :curated
+    :curated,
+    :created_at,
+    :updated_at,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -62,13 +60,13 @@ class ContentDashboard < Administrate::BaseDashboard
     :title,
     :media_url,
     :description,
-    :curated
+    :curated,
   ].freeze
 
-  # Overwrite this method to customize how contents are displayed
+  # Overwrite this method to customize how infocards are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(content)
-    "#{content.title}"
-  end
+  # def display_resource(infocard)
+  #   "Infocard ##{infocard.id}"
+  # end
 end

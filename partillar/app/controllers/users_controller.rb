@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @contents = current_user.contents
+    @infocards = current_user.infocards
   end
 
   def new

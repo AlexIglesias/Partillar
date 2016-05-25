@@ -1,4 +1,4 @@
-class Content < ActiveRecord::Base
+class Infocard < ActiveRecord::Base
   belongs_to :category
   belongs_to :location
   belongs_to :user
@@ -9,13 +9,13 @@ class Content < ActiveRecord::Base
     if query.capitalize.blank?
       where('curated = true')
     else
-      content_cache = $redis.get("search_#{query.capitalize}")
-      if content_cache.nil?
-        @content = Content.where('title LIKE ?', "%#{query.capitalize}%").where(curated: true)
-        $redis.set("search_#{query.capitalize}", @content.to_json)
-        @content
+      infocard_cache = $redis.get("search_#{query.capitalize}")
+      if infocard_cache.nil?
+        @infocard = infocard.where('title LIKE ?', "%#{query.capitalize}%").where(curated: true)
+        $redis.set("search_#{query.capitalize}", @infocard.to_json)
+        @infocard
       else
-        @content = JSON.parse(content_cache)[0][0]
+        @infocard = JSON.parse(infocard_cache)[0][0]
       end
     end
   end

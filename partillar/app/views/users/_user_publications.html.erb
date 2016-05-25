@@ -9,12 +9,12 @@
             </tr>
         </thead>
         <tbody>
-            <% @contents.each do |content| %>
+            <% @infocards.each do |infocard| %>
                 <tr>
-                    <td class="uk-text-center"><%= content.title %></td>
-                    <td class="uk-text-center"><%= content.category.name %></td>
-                    <td class="uk-text-center"><%= content.created_at.strftime("%d-%m-%Y") %></td>
-                    <td class="uk-text-center"><a href="/contents/<%= content.id %>" class="uk-icon-button"><i class="uk-icon-plus-circle"></i></a></td>
+                    <td class="uk-text-center"><%= infocard.title %></td>
+                    <td class="uk-text-center"><%= infocard.category.name %></td>
+                    <td class="uk-text-center"><%= infocard.created_at.strftime("%d-%m-%Y") %></td>
+                    <td class="uk-text-center"><a href="/infocards/<%= infocard.id %>" class="uk-icon-button"><i class="uk-icon-plus-circle"></i></a></td>
                 </tr>
             <% end %>
         </tbody>

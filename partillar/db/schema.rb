@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523164651) do
+ActiveRecord::Schema.define(version: 20160524171052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,24 +22,20 @@ ActiveRecord::Schema.define(version: 20160523164651) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "contents", force: :cascade do |t|
+  create_table "infocards", force: :cascade do |t|
     t.string   "source"
     t.string   "title"
     t.string   "media_url"
     t.text     "description"
-    t.boolean  "curated",            default: false
+    t.boolean  "curated",     default: false
     t.integer  "category_id"
     t.integer  "location_id"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "user_id"
   end
 
-  add_index "contents", ["location_id"], name: "index_contents_on_location_id", using: :btree
+  add_index "infocards", ["location_id"], name: "index_infocards_on_location_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.float    "latitude"
@@ -50,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160523164651) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "name",                   default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -62,7 +59,6 @@ ActiveRecord::Schema.define(version: 20160523164651) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

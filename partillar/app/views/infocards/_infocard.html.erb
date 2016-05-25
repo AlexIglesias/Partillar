@@ -1,0 +1,26 @@
+<div class="uk-grid">
+	<div class="uk-width-1-4 footer_title">
+		<h2 class="infocard_title"><%= @infocard.title %></h2>
+		<h3>Localización: <%= @infocard.location.name %></h3>
+		<h6>Fuente: <%= @infocard.source  %></h6>
+		<h6>Categoría: <%= @infocard.category.name  %></h6>
+	</div>
+	<div id="footer_description" class="uk-width-3-4"">
+		<i id="infocardClose" class="fa fa-arrow-down fa-3x" aria-hidden="true"></i>
+		<article class="uk-article">
+			<p><%= @infocard.description %></p>
+			<p>
+				<h3>Media:</h3>
+				<p>
+					<figure class="uk-overlay">
+						<a href=" <%= @infocard.media_url %>" data-uk-lightbox data-lightbox-type="video">
+							<img src="images/logo.svg" width="200" height="125" alt="partillar">
+	                   		 <div class="uk-overlay-panel uk-overlay-icon-play">
+	                   		 </div>
+						</a>
+                	</figure>
+				</p>
+			</p>
+		</article>
+	</div>
+</div>

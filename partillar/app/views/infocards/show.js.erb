@@ -1,0 +1,9 @@
+console.log('Infocaaaaarllll');
+<!-- document.getElementById('infocard').innerHTML("<%=j render "infocards/infocard",locals:@infocard%>"); -->
+$('#infocard').html("<%=j render "infocards/infocard",locals:@infocard%>");
+$("#infocard").animate({height:"87vh", padding: "15px"}, 500);
+$("#infocardClose").on('click', function(){
+	$('#infocard').animate({height:"0px", padding: "0px"}, 500);
+})
+
+

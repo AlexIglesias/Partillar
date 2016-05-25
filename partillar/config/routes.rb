@@ -1,18 +1,21 @@
 Rails.application.routes.draw do
+
   devise_for :users
 
   get 'show', to: 'users#show'
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
-  get '/', to: "contents#index"
-  get '/search', to: 'contents#search', defaults: { format: :json }
+  get '/', to: "infocards#index"
+  get '/search', to: 'infocards#search', defaults: { format: :json }
 
-  resources :contents, except: [:index]
+  resources :infocards, except: [:index]
 
   namespace :admin do
+    resources :users
     resources :categories
-    resources :contents
+    resources :infocards
     resources :locations
-    root to: "categories#index"
+
+    root to: "users#index"
   end
 
 

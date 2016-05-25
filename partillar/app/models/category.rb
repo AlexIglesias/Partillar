@@ -1,3 +1,3 @@
 class Category < ActiveRecord::Base
-  has_many :contents
+  has_many :infocards
 end

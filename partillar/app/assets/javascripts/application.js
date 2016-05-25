@@ -16,5 +16,3 @@
 //= require uikit-components
 //= require_tree .
 
-
-

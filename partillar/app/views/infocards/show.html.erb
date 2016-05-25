@@ -1,24 +1,24 @@
 <div class="uk-width-medium-2-3 uk-container-center">
   <div class="uk-panel">
     <article class="uk-article">
-      <h1 class="uk-article-title uk-text-center"><%= @content.title %></h1>
+      <h1 class="uk-article-title uk-text-center"><%= @infocard.title %></h1>
       <hr class="uk-article-divider">
-      <p class="uk-article-meta">Fuente/Colaborador: <%= @content.source %>  </p>
-      <p class="uk-article-meta">Categoría: <%= @content.category.name %></p>
+      <p class="uk-article-meta">Fuente/Colaborador: <%= @infocard.source %>  </p>
+      <p class="uk-article-meta">Categoría: <%= @infocard.category.name %></p>
       <hr class="uk-article-divider">
       <p>
         <strong>Localización:</strong>
-        <%= @content.location.name %>
+        <%= @infocard.location.name %>
       </p>
       <hr class="uk-article-divider">
       <p>
         <strong>Descripción:</strong>
-        <p><%= @content.description %></p>
+        <p><%= @infocard.description %></p>
       </p>
       <hr class="uk-article-divider">
       <p>
         <strong>Video/Audio:</strong>
-        <a href=" <%= @content.media_url %>" data-uk-lightbox data-lightbox-type="video" class="uk-icon-hover uk-icon-play uk-icon-medium uk-button-large"></a>
+        <a href=" <%= @infocard.media_url %>" data-uk-lightbox data-lightbox-type="video" class="uk-icon-hover uk-icon-play uk-icon-medium uk-button-large"></a>
       </p>
       
       <div class="uk-form-row">

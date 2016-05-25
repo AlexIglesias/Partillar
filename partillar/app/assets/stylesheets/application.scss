@@ -2,10 +2,10 @@
 @import url(https://fonts.googleapis.com/css?family=Josefin+Slab);
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display);
 
-$font-heading: 'Josefin Sans', sans-serif;
+$font-heading: "abril-fatface", sans-serif;
 $font-text: 'Playfair Display', serif;
 $base-body-font-family: $font-text;
-$base-body-font-size: 16px;
+$base-body-font-size: 14px;
 $base-code-font-family: $font-text;
 $base-code-font-size: 14px;
 $base-heading-font-family: $font-heading;
@@ -60,18 +60,55 @@ li > a {
     padding: 8px 8px;
     border-bottom: 1px solid #e5e5e5;
 }
-
+h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+}
 h3 {
     margin: 5px 5px -5px 5px;
 }
-.footer {
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    height:55px;
-    width:100%;
-    background: $secondary-color;
+#brand {
+    text-decoration: none;
+    color: #fff;
 }
+#brand:hover {
+    color: $principal-color;
+}
+#infocard {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 0px;
+    width: 100%;
+    color: #fff;
+    background: $secondary-color;
+    z-index: 2;
+    opacity: 0.9;
+}
+#footer_description {
+    border-left: 1px solid $principal-color;
+    padding: 20px 40px;
+    font-family: "source-sans-pro";
+}
+.infocard_title {
+    font-size: 70px;
+    line-height: 70px;
+    font-family: "abril-fatface";
+    font-style: italic;
+}
+.footer_title {
+    padding: 20px 40px;
+}
+.infocard_overlay {
+    background: rgba(0, 0, 0, 0);
+}
+#infocardClose {
+    position: absolute;
+    right: 40px;
+    top: 5px;
+    color: #fff;
+}
+
+
 .uk-cover-background {
     background-position: 50% 50%;
     background-size: contain; 
@@ -159,6 +196,7 @@ h3 {
 	height:100vh;
 }
 
+
 #iw-container  .iw-title {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 22px;
@@ -189,7 +227,12 @@ h3 {
     background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
     background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
 }
-
+.iw-title {
+    color: #000000;
+}
+.infowindow_link {
+    margin-bottom: -40px;
+}
 
 
 
