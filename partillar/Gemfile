@@ -65,7 +65,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard-bundler'
   gem 'guard-rails'
-  gem 'jasmine-rails'
 end
 
 group :development do
