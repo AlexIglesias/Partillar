@@ -7,6 +7,7 @@ class Infocard < ActiveRecord::Base
   def self.search(query)
     if query.capitalize.blank?
       @infocard = where('curated = true')
+      @infocard = Infocard.get_locations(@infocard.to_a)
     else
       infocard_cache = $redis.get("search_#{query.capitalize}")
       if infocard_cache.nil?
@@ -15,7 +16,7 @@ class Infocard < ActiveRecord::Base
         $redis.set("search_#{query.capitalize}", @infocard.to_json)
         @infocard
       else
-        @infocard = JSON.parse(infocard_cache)
+        @infocard = JSON.load(infocard_cache)
         @infocard
       end
     end
@@ -31,16 +32,11 @@ class Infocard < ActiveRecord::Base
         description: infocard.description,
         media_url: infocard.media_url,
         curated: infocard.curated,
-        location: {
-          name: infocard.location.name,
-          latitude: infocard.location.latitude,
-          longitude: infocard.location.longitude,
-        },
-        category: {
-          name: infocard.category.name
-        }
+        location_name: infocard.location.name,
+        location_latitude: infocard.location.latitude,
+        location_longitude: infocard.location.longitude,
+        category_name: infocard.category.name
       }
-      binding.pry
       infocards.push(i)
     end
     infocards
@@ -49,9 +45,5 @@ class Infocard < ActiveRecord::Base
   private
   def redis
     $redis
-  end
-
-  def hash
-    "redis_search_#{current_user}_#{query}"
   end
 end

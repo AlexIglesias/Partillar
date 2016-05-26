@@ -163,10 +163,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         ajaxWrapper.searchTitle().then(function(response){
             response.infocards.forEach(function(infocard){
-                console.log(infocard);
-                console.log(response);
-                console.log(infocard.location.name, infocard.location.latitude, infocard.location.longitude);
-                createMarker({lat: parseFloat(infocard.location.latitude), lng: parseFloat(infocard.location.longitude)}, infocard);
+                if(Array.isArray(infocard.location)) {
+                    console.log(response);
+                    console.log(infocard.location[0].name, infocard.location[0].latitude, infocard.location[0].longitude);
+                    createMarker({lat: parseFloat(infocard.location[0].latitude), lng: parseFloat(infocard.location[0].longitude)}, infocard);
+                } else {
+                    console.log(infocard.location_name, infocard.location_latitude, infocard.location_longitude);
+                    createMarker({lat: parseFloat(infocard.location_latitude), lng: parseFloat(infocard.location_longitude)}, infocard);
+                }
+                
             });
         });
     });
@@ -189,7 +194,7 @@ function createMarker(position, infocard) {
                          '<h3 class="iw-title uk-text-center">' + infocard.title + '</h3>' +
                             '<hr>' +
                             '<ul class="">' +
-                            '<li>' + 'Localización: ' + infocard.location.name + '</li>' +
+                            '<li>' + 'Localización: ' + infocard.location_name + '</li>' +
                             '<li>' + 'Fuente: ' + infocard.source + '</li>' +
                             '<li>' + '<a href="/infocards/' + infocard.id + '" class="infowindow_link uk-icon-hover uk-icon-plus-square-o uk-icon-small" data-remote="true">' + ' Ver más' + '</a>'  + '</li>' 
                         '</ul>' +
