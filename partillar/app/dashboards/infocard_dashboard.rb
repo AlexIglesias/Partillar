@@ -66,7 +66,7 @@ class InfocardDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how infocards are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(infocard)
-  #   "Infocard ##{infocard.id}"
-  # end
+  def display_resource(infocard)
+    "#{infocard.name}"
+  end
 end

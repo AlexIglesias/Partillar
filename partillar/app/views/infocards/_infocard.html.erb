@@ -1,9 +1,9 @@
 <div class="uk-grid">
 	<div class="uk-width-1-4 footer_title">
 		<h2 class="infocard_title"><%= @infocard.title %></h2>
-		<h3>Localización: <%= @infocard.location.name %></h3>
-		<h6>Fuente: <%= @infocard.source  %></h6>
-		<h6>Categoría: <%= @infocard.category.name  %></h6>
+		<h3>Localización: <span class="infocard-span"><%= @infocard.location.name %></span></h3>
+		<h3>Fuente: <span class="infocard-span"><%= @infocard.source  %></span></h3>
+		<h3>Categoría: <span class="infocard-span"><%= @infocard.category.name  %></span></h3>
 	</div>
 	<div id="footer_description" class="uk-width-3-4"">
 		<i id="infocardClose" class="fa fa-arrow-down fa-3x" aria-hidden="true"></i>

@@ -8,27 +8,15 @@
 
 
 categories = Category.create([{name: "Musica"}, {name: "Baile"}, {name: "Ropa"}, {name: "Etnografía"} ])
-# location = Location.create(name: "Marin", latitude: "42.3898489", longitude: "-8.7102692")
-# location1 = Location.create(name: "Ferrol", latitude: "43.4911362", longitude: "-8.2544002")
 
-# infocard1 = infocard.create([
-#   {source: "Alex", title: "Prueba1", media_url: "https://goo.gl/YKErCJ", description: "Primera prueba de base de datos", curated: true },
-#   {source: "Mikel", title: "Prueba2", media_url: "https://goo.gl/YKErCJ", description: "Primera prueba de base de datos", curated: true },
-#   {source: "Victor", title: "Prueba3", media_url: "https://goo.gl/YKErCJ", description: "Primera prueba de base de datos", curated: false },
-#   {source: "Rixie", title: "Prueba4", media_url: "https://goo.gl/YKErCJ", description: "Primera prueba de base de datos", curated: true },
-#   ])
+alex = User.create([
+  {name: 'Alex Iglesias',  email: 'alex@partillar.com', password: '123456', password_confirmation: '123456'}
+])
 
 infocard1 = Infocard.create({source: "Alex", title: "Prueba1", media_url: "https://goo.gl/YKErCJ", description: "Primera prueba de base de datos", curated: true, category_id:1})
 infocard2 = Infocard.create({source: "Mikel", title: "Prueba2", media_url: "https://goo.gl/YKErCJ", description: "Primera prueba de base de datos", curated: true, category_id:2 })
 infocard3 = Infocard.create({source: "Victor", title: "Prueba3", media_url: "https://goo.gl/YKErCJ", description: "Primera prueba de base de datos", curated: false, category_id:3 })
 infocard4 = Infocard.create({source: "Rixie", title: "Prueba4", media_url: "https://goo.gl/YKErCJ", description: "Primera prueba de base de datos", curated: true, category_id:2})
-
-paul, alia, leto = User.create([
-  {name: 'Paul Atreides',  email: 'paul@arrakis.com', password: 'ironhack', password_confirmation: 'ironhack'},
-  {name: 'Alia Atreides',  email: 'alia@arrakis.com',  password: 'ironhack', password_confirmation: 'ironhack'},
-  {name: 'Leto Atreides', email: 'leto@arrakis.com',  password: 'ironhack', password_confirmation: 'ironhack'}
-])
-
 
 
 
